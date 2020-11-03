@@ -43,7 +43,6 @@ export default function makeData(...lens) {
 
 
 module.exports = (req, res) => {
-    const { name = 'World' } = req.query
-    
-    res.status(200).send(`Hello ${name}!\n`+makeData(20))
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(makeData(20)));
   }
